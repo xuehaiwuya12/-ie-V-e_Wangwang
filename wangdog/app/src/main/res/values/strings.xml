@@ -72,6 +72,8 @@
     <string name="voice_seconds_tips">还可以说%1$s秒</string>
 
     <string name="voice_short_tips">录音时间太短</string>
+    
+    <string name="your_account_have_be_landed">您的账号已在其他设备上登录!</string>
 
     <string name="show_notice">\t\t\t\t\t自V1.0.6版本开始，应用源码中将不再公开ApplicationId,开发者请自行到官网申请。\n\t\t\t\t\t申请成功之后在应用程序启动页(SplashActivity)进行初始化操作!</string>
 </resources>
