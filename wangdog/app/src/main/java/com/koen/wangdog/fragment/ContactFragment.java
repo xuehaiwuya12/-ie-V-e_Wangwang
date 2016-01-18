@@ -6,6 +6,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.koen.wangdog.view.ClearEditText;
+import com.koen.wangdog.view.MyLetterView;
 
 /**
  * Created by Administrator on 2016/1/17.
@@ -17,6 +18,7 @@ public class ContactFragment extends BaseFragment implements AdapterView.OnItemC
     TextView dialog;
 
     ListView list_friend;
+    MyLetterView right_letter;
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
