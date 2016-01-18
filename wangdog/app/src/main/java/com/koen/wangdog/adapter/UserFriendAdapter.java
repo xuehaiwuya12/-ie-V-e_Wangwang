@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.koen.wangdog.R;
 import com.koen.wangdog.bean.User;
+import com.koen.wangdog.util.ImageUtil;
 
 import java.util.List;
 
@@ -76,25 +77,43 @@ public class UserFriendAdapter extends BaseAdapter implements SectionIndexer{
         String name = friend.getUsername();
         String avatar = friend.getAvatar();
 
-        if (!TextUtils.isEmpty(avatar)) {
+        ImageUtil.setImage(context, viewHolder.avatar,avatar);
+        viewHolder.name.setText(name);
 
+        //根据position获取分类的首字母的char ascii值
+        int section = getSectionForPosition(position);
+
+        //如果当前位置等于该分类首字母的char的位置，则认为是第一次出现
+        if (position == getPositionForSection(section)) {
+            viewHolder.alpha.setVisibility(View.VISIBLE);
+            viewHolder.alpha.setText(friend.getSortLetters());
+        } else {
+            viewHolder.alpha.setVisibility(View.GONE);
         }
         return convertView;
     }
 
     @Override
     public Object[] getSections() {
-        return new Object[0];
+        return null;
     }
 
     @Override
     public int getPositionForSection(int sectionIndex) {
-        return 0;
+        for (int i = 0; i < getCount(); i++) {
+            String sortStr = dataList.get(i).getSortLetters();
+            char firstChar = sortStr.toUpperCase().charAt(0);
+            if (firstChar == sectionIndex) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
     public int getSectionForPosition(int position) {
-        return 0;
+        return dataList.get(position).getSortLetters().charAt(0);
     }
 
     static class ViewHolder {
