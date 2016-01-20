@@ -1,5 +1,6 @@
 package com.koen.wangdog.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -48,6 +49,22 @@ public class ContactFragment extends BaseFragment implements AdapterView.OnItemC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_contacts, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        init();
+    }
+
+    private void init() {
+        characterParser = CharacterParser.getInstance();
+        pinyinComparator = new PinyinComparator();
+    }
+
+    private void initListView() {
+        list_friend = (ListView) findViewById(R.id.list_friends);
     }
 
     @Override
