@@ -18,7 +18,7 @@ import cn.bmob.v3.BmobInstallation;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
- * Created by Administrator on 2016/1/16.
+ * Created by koen on 2016/1/16.
  */
 public class RegisterActivity extends BaseActivity{
 
